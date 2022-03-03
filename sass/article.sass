@@ -1,0 +1,173 @@
+$bgcolor: #FFFFFF
+$btn_border_color: rgba(196, 181, 181, 0.68)
+$btn_color_text: rgba(122, 120, 120, 0.68)
+@mixin flexable($dir: row, $justify: flex-start, $align: flex-start)
+  display: flex
+  flex-direction: $dir
+  justify-content: $justify
+  align-items: $align
+
+@mixin border_input()
+  height: 6vh
+  border: 2px solid $btn_border_color
+  border-radius: 3px
+  width: 100%
+
+@mixin btn()
+  padding: 10px 15px
+  color: $btn_color_text
+  font-weight: bolder
+  text-transform: uppercase
+  border: 2px solid $btn_border_color
+  border-radius: 5px
+  background: $bgcolor
+
+
+
+.article
+  &__img
+    @include flexable($justify: center, $align: center)
+    img
+      display: block
+      width: 100vw
+
+  &__content
+    padding: 0 3vw
+
+    &__title
+      font-weight: normal
+
+    &__paragraph
+      margin: unset
+
+    &__name-button
+      @include btn
+      margin: 30px 0
+
+
+hr
+  border: 1px solid $btn_border_color
+  margin-top: 5vh
+
+.gallery
+  &__title
+    @include flexable($justify: center, $align: center)
+    font-weight: normal
+
+  &__content
+    overflow: hidden
+    display: flex
+    &__img
+      @include flexable($justify: center, $align: center)
+      width: 100%
+      img
+        display: block
+        width: 100vw
+        background-size: cover
+
+
+.features
+  display: grid
+  padding: 0 2vw
+  &__title
+    @include flexable($justify: center, $align: center)
+    font-weight: normal
+    margin: 9vh 0
+
+  &__content
+    @include flexable($dir:column,$justify: center, $align: center)
+    border-bottom: 1px solid $btn_border_color
+    img
+      padding-top: 7vh
+    &__number
+      font-weight: bolder
+      margin: 3vh 0
+    &__info
+      padding: 0 1vh 5vh 1vh
+      text-align: center
+
+//.registration
+//  @include flexable($dir:column,$justify: center, $align:normal)
+//  padding: 0 3vw
+//  &__title
+//    font-weight: normal
+//    margin: 50px 0
+//  &__form
+//    &__int
+//      &__data
+//        width: 100%
+//        label
+//          font-weight: bolder
+//        input
+//          @include border_input
+//          margin: 1vh 0 5vh 0
+
+.registration
+  padding: 0 3vw
+  &__title
+    text-align: center
+    font-weight: normal
+    margin: 50px 0
+  &__form
+    &__int
+      &__data
+        label
+          font-weight: bolder
+        input
+          @include border_input
+          margin: 1vh 0 5vh 0
+          box-sizing: border-box
+
+    &__chekbox
+      &__title
+      font-weight: bolder
+
+
+
+    &__select
+      &__title
+        font-weight: bolder
+      select
+        @include border_input
+        background-color: $bgcolor
+
+
+    &__textarea
+      label
+        display: block
+        margin: 3vh 0 1vh 0
+        font-weight: bolder
+      textarea
+        @include border_input
+        box-sizing: border-box
+        height: 30vh
+
+
+    &__send
+      display: flex
+      justify-content: space-between
+      align-items: center
+      &__checkbox
+        input
+        label
+          font-weight: bolder
+      button
+        @include btn
+        margin: 3vh 0 3vh 0
+
+
+
+footer
+  text-align: center
+  margin: 7vh 0
+  a
+    margin: 0 1vw
+  img
+    border: 1px solid black
+    border-radius: 50%
+    width: 8vw
+    height: 5vh
+    padding: 7px
+  div
+    margin-top: 3vh
+    font-weight: bold
