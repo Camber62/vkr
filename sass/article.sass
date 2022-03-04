@@ -22,7 +22,9 @@ $btn_color_text: rgba(122, 120, 120, 0.68)
   border-radius: 5px
   background: $bgcolor
 
-
+.container
+  @media (min-width: 850px)
+    padding: 0 5vw
 
 .article
   &__img
@@ -45,25 +47,53 @@ $btn_color_text: rgba(122, 120, 120, 0.68)
       margin: 30px 0
 
 
+
+@media (min-width: 850px)
+  .article
+    display: flex
+    align-items: center
+    &:nth-child(odd)
+      flex-direction: row-reverse
+      border-bottom: 1px solid $btn_border_color
+      border-top: 1px solid $btn_border_color
+
+    &__img
+      height: 60vh
+      width: 35vw
+      img
+        width: inherit
+        height: inherit
+    &__content
+      &__title
+        margin-top: 0
+
 hr
   border: 1px solid $btn_border_color
   margin-top: 5vh
+.one
+   @media (min-width: 850px)
+    display: none
+
+
 
 .gallery
   &__title
     @include flexable($justify: center, $align: center)
     font-weight: normal
-
   &__content
     overflow: hidden
     display: flex
     &__img
       @include flexable($justify: center, $align: center)
       width: 100%
+      @media (min-width: 850px)
+        align-items: normal
       img
         display: block
         width: 100vw
         background-size: cover
+        @media (min-width: 850px)
+          width: 100%
 
 
 .features
@@ -120,7 +150,7 @@ hr
 
     &__chekbox
       &__title
-      font-weight: bolder
+        font-weight: bolder
 
 
 
@@ -157,17 +187,3 @@ hr
 
 
 
-footer
-  text-align: center
-  margin: 7vh 0
-  a
-    margin: 0 1vw
-  img
-    border: 1px solid black
-    border-radius: 50%
-    width: 8vw
-    height: 5vh
-    padding: 7px
-  div
-    margin-top: 3vh
-    font-weight: bold

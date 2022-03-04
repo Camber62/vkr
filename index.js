@@ -3,3 +3,4 @@ document.querySelector('.header__burger-button').addEventListener('click', (even
     list.classList.toggle('header__links-list-display')
 })
 
+
