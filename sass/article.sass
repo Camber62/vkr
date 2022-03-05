@@ -22,6 +22,15 @@ $btn_color_text: rgba(122, 120, 120, 0.68)
   border-radius: 5px
   background: $bgcolor
 
+@mixin btnslaid()
+  cursor: pointer
+  position: absolute
+  top: 35%
+  padding-left: 16px
+  color: #ffffff
+  font-weight: bold
+  font-size: 35px
+
 .container
   @media (min-width: 850px)
     padding: 0 5vw
@@ -80,21 +89,34 @@ hr
   &__title
     @include flexable($justify: center, $align: center)
     font-weight: normal
+    margin: 7vh 0
+
+
   &__content
     overflow: hidden
     display: flex
+    @media (min-width: 850px)
+      position: relative
     &__img
       @include flexable($justify: center, $align: center)
       width: 100%
+      height: 50vh
+
+      @media (min-width: 600px)
+        width: 50vw
       @media (min-width: 850px)
-        align-items: normal
+        width: 22vw
+        height: 35vh
       img
         display: block
         width: 100vw
         background-size: cover
+        @media (min-width: 600px)
+          width: inherit
+          height: 50vh
         @media (min-width: 850px)
-          width: 100%
-
+          width: inherit
+          height: 100%
 
 .features
   display: grid
@@ -185,5 +207,20 @@ hr
         @include btn
         margin: 3vh 0 3vh 0
 
+// Кнопки влево и впрво
 
 
+
+
+
+
+.slleft
+  @include btnslaid()
+  @media (max-width: 850px)
+    display: none
+
+.slright
+  @include btnslaid()
+  right: 3vh
+  @media (max-width: 850px)
+    display: none
