@@ -25,13 +25,15 @@ $btn_color_text: rgba(122, 120, 120, 0.68)
 @mixin btnslaid()
   cursor: pointer
   position: absolute
-  top: 35%
+  top: 45%
   padding-left: 16px
   color: #ffffff
   font-weight: bold
   font-size: 35px
 
 .container
+  @media (min-width: 600px)
+    padding: 0 5vw
   @media (min-width: 850px)
     padding: 0 5vw
 
@@ -44,30 +46,53 @@ $btn_color_text: rgba(122, 120, 120, 0.68)
 
   &__content
     padding: 0 3vw
-
     &__title
       font-weight: normal
-
     &__paragraph
       margin: unset
-
     &__name-button
       @include btn
       margin: 30px 0
+      &:hover
+        background: #c5cbcb
 
-
+@media (min-width: 600px)
+  .article
+    display: flex
+    align-items: center
+    height: 35vh
+    &:nth-child(odd)
+      flex-direction: row-reverse
+      border-bottom: 1px solid $btn_border_color
+      border-top: 1px solid $btn_border_color
+    &__img
+      height: 100%
+      width: 50%
+      img
+        width: 44vw
+        height: inherit
+    &__content
+      width: 50%
+      &__title
+        margin-top: 0
+      &__paragraph
+        font-size: smaller
+      &__name-button
+       margin: 1vh 0
 
 @media (min-width: 850px)
   .article
     display: flex
     align-items: center
+    height: 50vh
+
     &:nth-child(odd)
       flex-direction: row-reverse
       border-bottom: 1px solid $btn_border_color
       border-top: 1px solid $btn_border_color
 
     &__img
-      height: 60vh
+      height: 100%
       width: 35vw
       img
         width: inherit
@@ -75,11 +100,17 @@ $btn_color_text: rgba(122, 120, 120, 0.68)
     &__content
       &__title
         margin-top: 0
+      &__paragraph
+        font-size: larger
+      &__name-button
+        margin: 5vh 0
 
 hr
   border: 1px solid $btn_border_color
   margin-top: 5vh
 .one
+   @media (min-width: 600px)
+     display: none
    @media (min-width: 850px)
     display: none
 
@@ -95,48 +126,64 @@ hr
   &__content
     overflow: hidden
     display: flex
+    height: 40vh
     @media (min-width: 850px)
       position: relative
     &__img
       @include flexable($justify: center, $align: center)
       width: 100%
-      height: 50vh
+      height: 100%
 
       @media (min-width: 600px)
         width: 50vw
       @media (min-width: 850px)
         width: 22vw
-        height: 35vh
       img
         display: block
         width: 100vw
         background-size: cover
         @media (min-width: 600px)
           width: inherit
-          height: 50vh
+          height: 30vh
         @media (min-width: 850px)
           width: inherit
           height: 100%
 
 .features
-  display: grid
   padding: 0 2vw
   &__title
     @include flexable($justify: center, $align: center)
     font-weight: normal
     margin: 9vh 0
-
-  &__content
-    @include flexable($dir:column,$justify: center, $align: center)
-    border-bottom: 1px solid $btn_border_color
-    img
-      padding-top: 7vh
-    &__number
-      font-weight: bolder
-      margin: 3vh 0
-    &__info
-      padding: 0 1vh 5vh 1vh
-      text-align: center
+  &__grid
+    display: grid
+    @media (min-width: 600px)
+      grid-template-columns: 1fr 1fr
+      background: $btn_border_color
+      gap: 1px
+    @media (min-width: 850px)
+      grid-template-columns: 1fr 1fr 1fr
+      background: $btn_border_color
+      gap: 1px
+    &__content
+      @include flexable($dir:column,$justify: center, $align: center)
+      border-bottom: 1px solid $btn_border_color
+      @media (min-width: 600px)
+        background: $bgcolor
+        padding-inline: 3vw
+        border: none
+      @media (min-width: 850px)
+        background: $bgcolor
+        border: none
+        padding-inline: 3vw
+      img
+        padding-top: 7vh
+      &__number
+        font-weight: bolder
+        margin: 3vh 0
+      &__info
+        padding: 0 1vh 5vh 1vh
+        text-align: center
 
 //.registration
 //  @include flexable($dir:column,$justify: center, $align:normal)

@@ -35,6 +35,11 @@ $header-height: 45px
         z-index: 3
         text-transform: uppercase
         font-weight: bold
+        a
+            color: $black-text-color
+            text-decoration: none
+            &:hover
+                color: #c5cbcb
         @include flexable($justify: center, $align: center)
     &__nav
         @include flexable($justify: center, $align: center)
@@ -71,9 +76,11 @@ $header-height: 45px
             text-decoration: none
             color: $black-text-color
             font-size: 24px
+            &:hover
+                color: #c5cbcb
             @media (min-width: 600px)
-                margin-left: 3vw
-                font-size: 20px
+                margin-left: 2.5vw
+                font-size: 19px
     &__burger
         z-index: 3
         position: relative
@@ -98,6 +105,9 @@ $header-height: 45px
     @media (max-width: 850px)
         display: none
     a
+        &:hover
+            background: #c5cbcb
+            border-radius: 10px
         img
           width: 30px
           height: 30px
