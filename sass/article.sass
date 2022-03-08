@@ -23,6 +23,7 @@ $btn_color_text: rgba(122, 120, 120, 0.68)
   background: $bgcolor
 
 @mixin btnslaid()
+  align-self: center
   cursor: pointer
   position: absolute
   top: 45%
@@ -31,79 +32,72 @@ $btn_color_text: rgba(122, 120, 120, 0.68)
   font-weight: bold
   font-size: 35px
 
+//кномки на галлереи
+
+.slleft
+  display: none
+  @include btnslaid()
+  @media (max-width: 850px)
+    display: none
+.slright
+  display: none
+  right: 3vh
+  @include btnslaid()
+  @media (max-width: 850px)
+    display: none
+
 .container
   @media (min-width: 600px)
     padding: 0 5vw
   @media (min-width: 850px)
-    padding: 0 5vw
+    padding: 0 10vw
 
-.article
-  &__img
-    @include flexable($justify: center, $align: center)
-    img
-      display: block
-      width: 100vw
-
-  &__content
-    padding: 0 3vw
-    &__title
-      font-weight: normal
-    &__paragraph
-      margin: unset
-    &__name-button
-      @include btn
-      margin: 30px 0
-      &:hover
-        background: #c5cbcb
-
-@media (min-width: 600px)
-  .article
-    display: flex
-    align-items: center
-    height: 35vh
-    &:nth-child(odd)
-      flex-direction: row-reverse
-      border-bottom: 1px solid $btn_border_color
-      border-top: 1px solid $btn_border_color
+.content
+  &__blok
+    display: grid
+    grid-template-columns: 100%
+    @media (min-width: 600px)
+      grid-template-columns: 50% 50%
+    @media (min-width: 800px)
+      grid-template-columns: 50% 50%
+      &:nth-child(2)
+        grid-template-columns: 30% 70%
+      &:nth-child(3)
+        grid-template-columns: 70% 30%
+      &:nth-child(odd)
+        border-bottom: 1px solid $btn_border_color
+        border-top: 1px solid $btn_border_color
     &__img
-      height: 100%
-      width: 50%
       img
-        width: 44vw
-        height: inherit
-    &__content
-      width: 50%
+         width: 100%
+         height: 100%
+    &__text
+      padding: 3vw
+      align-self: center
       &__title
-        margin-top: 0
+         font-weight: normal
+         font-size: xx-large
       &__paragraph
-        font-size: smaller
-      &__name-button
-       margin: 1vh 0
+      button
+        @include btn
+        margin: 30px 0
+        background: none
+        &:hover
+          background: #c5cbcb
 
-@media (min-width: 850px)
-  .article
-    display: flex
-    align-items: center
-    height: 50vh
 
-    &:nth-child(odd)
-      flex-direction: row-reverse
-      border-bottom: 1px solid $btn_border_color
-      border-top: 1px solid $btn_border_color
+.right
+  @media (min-width: 600px)
+    order: 2
+  @media (min-width: 850px)
+    order: 2
 
-    &__img
-      height: 100%
-      width: 35vw
-      img
-        width: inherit
-        height: inherit
-    &__content
-      &__title
-        margin-top: 0
-      &__paragraph
-        font-size: larger
-      &__name-button
-        margin: 5vh 0
+.left
+  @media (min-width: 600px)
+    order: 1
+  @media (min-width: 850px)
+    order: 1
+
 
 hr
   border: 1px solid $btn_border_color
@@ -112,7 +106,7 @@ hr
    @media (min-width: 600px)
      display: none
    @media (min-width: 850px)
-    display: none
+     display: none
 
 
 
@@ -125,26 +119,58 @@ hr
 
   &__content
     overflow: hidden
-    display: flex
-    height: 40vh
+    display: grid
+    height: 50vh
+    grid-template-columns: 100%
+    @media (min-width: 600px)
+      grid-template-columns: 50% 50%
+    @media (min-width: 850px)
+      grid-template-columns: 25% 25% 25% 25%
+    &:hover
+      .slleft
+        display: block
+      .slright
+        display: block
     @media (min-width: 850px)
       position: relative
     &__img
-      @include flexable($justify: center, $align: center)
+      position: relative
       width: 100%
-      height: 100%
+      height: inherit
+      &__information
+        text-align: center
+        color: white
+        position: absolute
+        width: 100%
+        height: inherit
+        background-color: rgba(201, 201, 201, 0.45)
+        top: 0
+        display: none
+        &__title
+          margin-top: 10vh
+          font-weight: normal
+          font-size: x-large
+        &__paragraph
+          margin: 3vh 0
+        button
+           @include btn
+           background: none
+           margin: 30px 0
+           color: white
+           border: 1px solid white
+           &:hover
+             background: #c5cbcb
 
-      @media (min-width: 600px)
-        width: 50vw
-      @media (min-width: 850px)
-        width: 22vw
+      &:hover
+        .gallery__content__img__information
+          display: block
       img
-        display: block
-        width: 100vw
+        width: inherit
         background-size: cover
+        height: inherit
         @media (min-width: 600px)
           width: inherit
-          height: 30vh
+          height: 50vh
         @media (min-width: 850px)
           width: inherit
           height: 100%
@@ -184,42 +210,58 @@ hr
       &__info
         padding: 0 1vh 5vh 1vh
         text-align: center
-
-//.registration
-//  @include flexable($dir:column,$justify: center, $align:normal)
-//  padding: 0 3vw
-//  &__title
-//    font-weight: normal
-//    margin: 50px 0
-//  &__form
-//    &__int
-//      &__data
-//        width: 100%
-//        label
-//          font-weight: bolder
-//        input
-//          @include border_input
-//          margin: 1vh 0 5vh 0
-
+.email
+  margin: 0
+  @media (min-width: 600px)
+    margin: 0 15px
 .registration
   padding: 0 3vw
+  @media (min-width: 800px)
+    padding: 0 10vw
   &__title
     text-align: center
     font-weight: normal
     margin: 50px 0
   &__form
     &__int
+      @media (min-width: 600px)
+        display: flex
+        justify-content: space-between
       &__data
+        width: 100%
         label
-          font-weight: bolder
+         font-weight: bolder
         input
           @include border_input
           margin: 1vh 0 5vh 0
           box-sizing: border-box
+        @media (min-width: 600px)
+           width: 95%
 
     &__chekbox
-      &__title
-        font-weight: bolder
+        input
+          position: absolute
+          opacity: 0
+          &:checked+label::before
+            background-color: rgba(82, 175, 35, 0.51)
+
+        label
+          cursor: pointer
+          display: flex
+          align-items: center
+          &::before
+            content: ' '
+            width: .7em
+            height: .7em
+            border-radius: 50%
+            margin: 1em
+            border: .01em solid rgba(0, 0, 0, 0.2)
+            background-color: $btn_border_color
+        &__title
+          font-weight: bolder
+        @media (min-width: 600px)
+          display: flex
+          align-items: center
 
 
 
@@ -236,6 +278,7 @@ hr
         display: block
         margin: 3vh 0 1vh 0
         font-weight: bolder
+
       textarea
         @include border_input
         box-sizing: border-box
@@ -253,21 +296,12 @@ hr
       button
         @include btn
         margin: 3vh 0 3vh 0
-
-// Кнопки влево и впрво
-
-
-
+        &:hover
+          background: #c5cbcb
+          color: white
 
 
 
-.slleft
-  @include btnslaid()
-  @media (max-width: 850px)
-    display: none
 
-.slright
-  @include btnslaid()
-  right: 3vh
-  @media (max-width: 850px)
-    display: none
+
+
