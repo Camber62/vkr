@@ -84,6 +84,7 @@ $btn_color_text: rgba(122, 120, 120, 0.68)
         background: none
         &:hover
           background: #c5cbcb
+          color: white
 
 
 .right
@@ -153,13 +154,13 @@ hr
         &__paragraph
           margin: 3vh 0
         button
-           @include btn
-           background: none
-           margin: 30px 0
-           color: white
-           border: 1px solid white
-           &:hover
-             background: #c5cbcb
+          @include btn
+          background: none
+          margin: 30px 0
+          color: white
+          border: 1px solid white
+          &:hover
+            background: #c5cbcb
 
       &:hover
         .gallery__content__img__information
@@ -291,8 +292,29 @@ hr
       align-items: center
       &__checkbox
         input
+          opacity: 0
+          position: absolute
+          &:checked+label::before
+            background: rgba(82, 175, 35, 0.51)
+
         label
+          cursor: pointer
+          display: flex
+          align-items: center
           font-weight: bolder
+
+          &::before
+            content: ' '
+            width: .7em
+            height: .7em
+            border-radius: 50%
+            margin: 1em
+            border: .01em solid rgba(0, 0, 0, 0.2)
+            background-color: $btn_border_color
+
+
+
+
       button
         @include btn
         margin: 3vh 0 3vh 0
