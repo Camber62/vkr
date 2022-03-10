@@ -10,6 +10,7 @@
       <change beforePath="$PROJECT_DIR$/sass/article.sass" beforeDir="false" afterPath="$PROJECT_DIR$/sass/article.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sass/footer.sass" beforeDir="false" afterPath="$PROJECT_DIR$/sass/footer.sass" afterDir="false" />
     </list>
+    <list default="true" id="b02bc6f4-19b7-4c96-b3d0-e1b4818806c0" name="Changes" comment="finish" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,10 +60,13 @@
       <workItem from="1646654768453" duration="5627000" />
       <workItem from="1646682368023" duration="6463000" />
       <workItem from="1646725243684" duration="27892000" />
+<<<<<<< HEAD
       <workItem from="1646883248755" duration="52000" />
       <workItem from="1646925678387" duration="28000" />
       <workItem from="1646925919961" duration="694000" />
       <workItem from="1646927637161" duration="6718000" />
+=======
+>>>>>>> origin/mai
     </task>
     <task id="LOCAL-00001" summary="home">
       <created>1646660815122</created>
@@ -78,6 +82,7 @@
       <option name="project" value="LOCAL" />
       <updated>1646764155908</updated>
     </task>
+<<<<<<< HEAD
     <task id="LOCAL-00003" summary="finish">
       <created>1646883286192</created>
       <option name="number" value="00003" />
@@ -86,6 +91,9 @@
       <updated>1646883286192</updated>
     </task>
     <option name="localTasksCounter" value="4" />
+=======
+    <option name="localTasksCounter" value="3" />
+>>>>>>> origin/mai
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
